@@ -1,0 +1,225 @@
+/* ============================================================================
+   Query by Humming - Spotify Clone Styles
+   ============================================================================ */
+
+@import "tailwindcss";
+
+/* ============================================================================
+   Base Styles
+   ============================================================================ */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: #121212;
+  color: #fff;
+  line-height: 1.6;
+  min-height: 100vh;
+  width: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+#root {
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* ============================================================================
+   Scrollbar
+   ============================================================================ */
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsla(0, 0%, 100%, .3);
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsla(0, 0%, 100%, .5);
+}
+
+/* ============================================================================
+   Animations
+   ============================================================================ */
+
+@keyframes eq1 {
+
+  0%,
+  100% {
+    height: 3px;
+  }
+
+  50% {
+    height: 10px;
+  }
+}
+
+@keyframes eq2 {
+
+  0%,
+  100% {
+    height: 6px;
+  }
+
+  50% {
+    height: 3px;
+  }
+}
+
+@keyframes eq3 {
+
+  0%,
+  100% {
+    height: 8px;
+  }
+
+  50% {
+    height: 4px;
+  }
+}
+
+.equalizer span:nth-child(1) {
+  animation: eq1 0.4s ease infinite;
+}
+
+.equalizer span:nth-child(2) {
+  animation: eq2 0.4s ease infinite 0.1s;
+}
+
+.equalizer span:nth-child(3) {
+  animation: eq3 0.4s ease infinite 0.2s;
+}
+
+/* ============================================================================
+   Vinyl Spin Animation
+   ============================================================================ */
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 8s linear infinite;
+}
+
+/* ============================================================================
+   Recorder Visualization (Fix for Grey Box)
+   ============================================================================ */
+
+.visualizer-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 64px;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+}
+
+.visualizer-bar {
+  width: 8px;
+  border-radius: 9999px;
+  background-color: #3f3f46;
+  min-height: 8px;
+}
+
+.recorder-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  max-width: 800px;
+  padding: 0 1rem;
+}
+
+.recorder-title {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  background: linear-gradient(to right, #fff, #a78bfa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.02em;
+}
+
+.recorder-subtitle {
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 1rem;
+  max-width: 600px;
+}
+
+.record-button {
+  width: 96px;
+  height: 96px;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
+  border: none;
+  outline: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  z-index: 20;
+}
+
+.record-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 40px rgba(99, 102, 241, 0.6);
+}
+
+.record-button:active {
+  transform: scale(0.95);
+}
+
+.record-button.recording {
+  background: linear-gradient(135deg, #ef4444, #f87171);
+  box-shadow: 0 10px 30px rgba(239, 68, 68, 0.4);
+}
+
+/* Add to your tailwind.css or global styles */
+@layer utilities {
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-lg border border-white/10;
+  }
+
+  .spotify-grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+}
+
+/* Smooth transitions */
+* {
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}

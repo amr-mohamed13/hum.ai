@@ -1,0 +1,19 @@
+# Query by Humming - Backend Dependencies
+# Python 3.10+ required
+
+# Web Framework
+fastapi>=0.104.0
+uvicorn[standard]>=0.24.0
+python-multipart>=0.0.6
+
+# Audio Processing & DSP
+librosa>=0.10.1
+numpy>=1.24.0
+scipy>=1.11.0
+
+# Dynamic Time Warping
+fastdtw>=0.3.4
+
+# Audio file format support
+soundfile>=0.12.1
+audioread>=3.0.1
